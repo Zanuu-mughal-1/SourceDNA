@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "sourcedna",
+  "version": "0.1.0",
+  "description": "Trace claim provenance, collapse derivative sources, and measure evidence independence for AI-era research.",
+  "author": { "name": "Zain Ul Abdeen" },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "SourceDNA",
+        "shortDescription": "Trace evidence lineage",
+        "longDescription": "Analyze factual claims, trace source lineage, identify derivative reporting and synthetic consensus, estimate claim drift, and calculate an experimental Evidence Independence Score. SourceDNA measures evidence independence, not factual truth.",
+        "developerName": "Zain Ul Abdeen",
+        "category": "Research",
+        "capabilities": ["Interactive"],
+        "defaultPrompt": [
+          "Analyze this claim with SourceDNA and tell me how many independent evidence roots support it.",
+          "Trace the citations in this answer and check whether they collapse to the same source.",
+          "Check this claim for synthetic consensus and claim drift."
+        ]
+      }
+    }
+  }
+}

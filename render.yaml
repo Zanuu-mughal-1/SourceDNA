@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: sourcedna
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: MCP_HOST
+        value: 0.0.0.0

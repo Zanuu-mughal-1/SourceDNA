@@ -1,0 +1,45 @@
+openapi: 3.1.0
+info:
+  title: SourceDNA API
+  version: 0.1.0
+  description: Evidence-lineage analysis. EIS measures source independence, not truth.
+servers:
+  - url: https://YOUR-SOURCEDNA-DOMAIN.example
+paths:
+  /api/demo:
+    get:
+      operationId: runSourceDnaDemo
+      summary: Run the deterministic SourceDNA demo
+      responses:
+        '200':
+          description: Demo evidence analysis
+  /api/analyze:
+    post:
+      operationId: analyzeEvidence
+      summary: Analyze source independence for a claim
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [claim]
+              properties:
+                claim:
+                  type: string
+                source_urls:
+                  type: array
+                  items:
+                    type: string
+                    format: uri
+                  default: []
+                max_sources:
+                  type: integer
+                  minimum: 3
+                  maximum: 30
+                  default: 12
+      responses:
+        '200':
+          description: SourceDNA analysis
+        '422':
+          description: Missing discovery configuration or insufficient readable sources
